@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema(
   {
+    // ================= GUEST DETAILS =================
+
     fullName: {
       type: String,
       required: true
@@ -16,6 +18,8 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+
+    // ================= COMMON DETAILS =================
 
     destination: {
       type: String,
@@ -41,6 +45,25 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+
+    // ================= HOTEL DETAILS =================
+
+    room: {
+      type: String,
+      default: ""
+    },
+
+    checkOutDate: {
+      type: String,
+      default: ""
+    },
+
+    rooms: {
+      type: String,
+      default: ""
+    },
+
+    // ================= SPECIAL REQUESTS =================
 
     requests: {
       type: String,

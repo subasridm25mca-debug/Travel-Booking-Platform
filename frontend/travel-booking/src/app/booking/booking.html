@@ -2,13 +2,23 @@
 
   <div class="page-header">
     <h2>Complete Your Booking</h2>
-    <p>Enter your travel details to confirm your trip</p>
+
+    <p>
+      Enter the required details to confirm your
+      {{ booking.service }} booking
+    </p>
   </div>
 
 
   <div class="booking-container">
 
     <form (ngSubmit)="confirmBooking()">
+
+      <!-- ================= GUEST DETAILS ================= -->
+
+      <h3 class="form-section-title">
+        Guest Details
+      </h3>
 
       <div class="form-grid">
 
@@ -55,170 +65,209 @@
         <div class="form-group">
           <label>Destination</label>
 
-          <select
-            name="destination"
-            [(ngModel)]="booking.destination">
-
-            <option value="Goa">Goa</option>
-            <option value="Manali">Manali</option>
-            <option value="Dubai">Dubai</option>
-            <option value="Maldives">Maldives</option>
-            <option value="Paris">Paris</option>
-            <option value="Singapore">Singapore</option>
-            <option value="International">International</option>
-
-          </select>
-        </div>
-
-
-        <!-- Service -->
-        <div class="form-group">
-          <label>Service</label>
-
           <input
             type="text"
-            name="service"
-            [(ngModel)]="booking.service"
+            name="destination"
+            [(ngModel)]="booking.destination"
             readonly>
         </div>
 
-
-        <!-- Travel Date -->
-        <div class="form-group">
-          <label>Travel Date</label>
-
-          <input
-            type="date"
-            name="travelDate"
-            [(ngModel)]="booking.travelDate"
-            required>
-        </div>
-
-
-        <!-- Number of Travellers -->
-        <div class="form-group">
-          <label>Number of Travellers</label>
-
-          <select
-            name="travellers"
-            [(ngModel)]="booking.travellers">
-
-            <option value="1 Traveller">
-              1 Traveller
-            </option>
-
-            <option value="2 Travellers">
-              2 Travellers
-            </option>
-
-            <option value="3 Travellers">
-              3 Travellers
-            </option>
-
-            <option value="4 Travellers">
-              4 Travellers
-            </option>
-
-            <option value="5+ Travellers">
-              5+ Travellers
-            </option>
-
-          </select>
-        </div>
-
       </div>
 
 
-      <!-- Travel Package -->
-      <div class="form-group full-width">
+      <!-- ================================================= -->
+      <!-- HOTEL BOOKING -->
+      <!-- ================================================= -->
 
-        <label>Travel Package</label>
+      @if (booking.service === 'Hotel') {
 
-        <select
-          name="package"
-          [(ngModel)]="booking.package">
-
-          <!-- General Travel Packages -->
-          <option value="Family Package">
-            Family Package
-          </option>
-
-          <option value="Couple Package">
-            Couple Package
-          </option>
-
-          <option value="Adventure Package">
-            Adventure Package
-          </option>
-
-          <option value="Luxury Package">
-            Luxury Package
-          </option>
-
-          <option value="Budget Package">
-            Budget Package
-          </option>
+        <h3 class="form-section-title">
+          Hotel Details
+        </h3>
 
 
-          <!-- Hotel Packages -->
-          <option value="Luxury Beach Resort">
-            Luxury Beach Resort
-          </option>
+        <div class="form-grid">
 
-          <option value="Mountain View Hotel">
-            Mountain View Hotel
-          </option>
+          <!-- Hotel -->
+          <div class="form-group">
 
-          <option value="Grand Dubai Hotel">
-            Grand Dubai Hotel
-          </option>
+            <label>Hotel</label>
 
-          <option value="Maldives Island Resort">
-            Maldives Island Resort
-          </option>
+            <input
+              type="text"
+              name="package"
+              [(ngModel)]="booking.package"
+              readonly>
+
+          </div>
 
 
-          <!-- Tour Packages -->
-          <option value="Goa Beach & Water Sports">
-            Goa Beach & Water Sports
-          </option>
+          <!-- Room -->
+          <div class="form-group">
 
-          <option value="Manali Adventure Tour">
-            Manali Adventure Tour
-          </option>
+            <label>Room Type</label>
 
-          <option value="Dubai City Experience">
-            Dubai City Experience
-          </option>
+            <input
+              type="text"
+              name="room"
+              [(ngModel)]="booking.room"
+              readonly>
 
-          <option value="Paris City Attractions">
-            Paris City Attractions
-          </option>
+          </div>
 
 
-          <!-- Cruise Packages -->
-          <option value="Mediterranean Cruise">
-            Mediterranean Cruise
-          </option>
+          <!-- Check-in -->
+          <div class="form-group">
 
-          <option value="Dubai Cruise">
-            Dubai Cruise
-          </option>
+            <label>Check-in Date</label>
 
-          <option value="Singapore Cruise">
-            Singapore Cruise
-          </option>
+            <input
+              type="date"
+              name="travelDate"
+              [(ngModel)]="booking.travelDate"
+              required>
 
-          <option value="Maldives Cruise">
-            Maldives Cruise
-          </option>
-
-        </select>
-
-      </div>
+          </div>
 
 
-      <!-- Special Requests -->
+          <!-- Check-out -->
+          <div class="form-group">
+
+            <label>Check-out Date</label>
+
+            <input
+              type="date"
+              name="checkOutDate"
+              [(ngModel)]="booking.checkOutDate"
+              required>
+
+          </div>
+
+
+          <!-- Guests -->
+          <div class="form-group">
+
+            <label>Number of Guests</label>
+
+            <select
+              name="travellers"
+              [(ngModel)]="booking.travellers">
+
+              <option>1 Traveller</option>
+              <option>2 Travellers</option>
+              <option>3 Travellers</option>
+              <option>4 Travellers</option>
+              <option>5+ Travellers</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Rooms -->
+          <div class="form-group">
+
+            <label>Number of Rooms</label>
+
+            <select
+              name="rooms"
+              [(ngModel)]="booking.rooms">
+
+              <option>1 Room</option>
+              <option>2 Rooms</option>
+              <option>3 Rooms</option>
+              <option>4+ Rooms</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <!-- ================================================= -->
+      <!-- OTHER SERVICES -->
+      <!-- ================================================= -->
+
+      @if (booking.service !== 'Hotel') {
+
+        <h3 class="form-section-title">
+          Travel Details
+        </h3>
+
+
+        <div class="form-grid">
+
+          <!-- Service -->
+          <div class="form-group">
+
+            <label>Service</label>
+
+            <input
+              type="text"
+              name="service"
+              [(ngModel)]="booking.service"
+              readonly>
+
+          </div>
+
+
+          <!-- Package -->
+          <div class="form-group">
+
+            <label>Package</label>
+
+            <input
+              type="text"
+              name="package"
+              [(ngModel)]="booking.package"
+              readonly>
+
+          </div>
+
+
+          <!-- Travel Date -->
+          <div class="form-group">
+
+            <label>Travel Date</label>
+
+            <input
+              type="date"
+              name="travelDate"
+              [(ngModel)]="booking.travelDate"
+              required>
+
+          </div>
+
+
+          <!-- Travellers -->
+          <div class="form-group">
+
+            <label>Number of Travellers</label>
+
+            <select
+              name="travellers"
+              [(ngModel)]="booking.travellers">
+
+              <option>1 Traveller</option>
+              <option>2 Travellers</option>
+              <option>3 Travellers</option>
+              <option>4 Travellers</option>
+              <option>5+ Travellers</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <!-- ================= SPECIAL REQUESTS ================= -->
+
       <div class="form-group full-width">
 
         <label>Special Requests</label>
@@ -232,7 +281,8 @@
       </div>
 
 
-      <!-- Confirm Button -->
+      <!-- ================= CONFIRM BUTTON ================= -->
+
       <div class="button-container">
 
         <button
@@ -248,29 +298,59 @@
     </form>
 
 
-    <!-- Success Message -->
+    <!-- ================= SUCCESS MESSAGE ================= -->
+
     @if (bookingConfirmed) {
 
       <div class="success-message">
 
-        <h3>🎉 Booking Confirmed Successfully!</h3>
+        <h3>
+          🎉 Booking Confirmed Successfully!
+        </h3>
+
 
         <p>
-          Thank you, {{ booking.fullName || 'Sri' }}!
+          Thank you, {{ booking.fullName }}!
         </p>
+
 
         <p>
           Your
           <strong>{{ booking.service }}</strong>
           booking to
           <strong>{{ booking.destination }}</strong>
-          has been booked successfully.
+          has been confirmed.
         </p>
 
-        <p>
-          Package:
-          <strong>{{ booking.package }}</strong>
-        </p>
+
+        @if (booking.service === 'Hotel') {
+
+          <p>
+            Hotel:
+            <strong>{{ booking.package }}</strong>
+          </p>
+
+          <p>
+            Room:
+            <strong>{{ booking.room }}</strong>
+          </p>
+
+          <p>
+            Check-in:
+            <strong>{{ booking.travelDate }}</strong>
+          </p>
+
+          <p>
+            Check-out:
+            <strong>{{ booking.checkOutDate }}</strong>
+          </p>
+
+          <p>
+            Rooms:
+            <strong>{{ booking.rooms }}</strong>
+          </p>
+
+        }
 
       </div>
 

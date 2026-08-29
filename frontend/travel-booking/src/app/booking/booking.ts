@@ -12,14 +12,24 @@ import { ActivatedRoute } from '@angular/router';
 export class Booking {
 
   booking = {
+    // Guest Details
     fullName: '',
     email: '',
     phone: '',
+
+    // Common Details
     destination: '',
     service: '',
     travelDate: '',
     travellers: '1 Traveller',
     package: '',
+
+    // Hotel Details
+    room: '',
+    checkOutDate: '',
+    rooms: '1 Room',
+
+    // Special Requests
     requests: ''
   };
 
@@ -33,17 +43,21 @@ export class Booking {
     this.route.queryParams.subscribe(params => {
 
       this.booking.destination =
-        params['destination'] || 'Goa';
+        params['destination'] || '';
 
       this.booking.service =
-        params['service'] || 'Flight';
+        params['service'] || '';
 
       this.booking.package =
-        params['package'] || 'Family Package';
+        params['package'] || '';
+
+      this.booking.room =
+        params['room'] || '';
 
     });
 
   }
+
 
   confirmBooking() {
 
@@ -53,14 +67,19 @@ export class Booking {
     ).subscribe({
 
       next: (response) => {
+
         console.log('Booking saved:', response);
 
         this.bookingConfirmed = true;
+
       },
 
       error: (error) => {
+
         console.error('Booking failed:', error);
+
         alert('Booking failed. Please try again.');
+
       }
 
     });

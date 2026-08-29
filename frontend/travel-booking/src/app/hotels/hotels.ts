@@ -11,13 +11,37 @@ export class Hotels {
 
   constructor(private router: Router) {}
 
-  bookNow(destination: string, packageName: string) {
+  // View complete hotel details
+  viewHotel(
+    destination: string,
+    hotelName: string,
+    room: string
+  ) {
+
+    this.router.navigate(['/hotel-details'], {
+      queryParams: {
+        destination: destination,
+        service: 'Hotel',
+        package: hotelName,
+        room: room
+      }
+    });
+
+  }
+
+  // Directly go to booking
+  bookNow(
+    destination: string,
+    hotelName: string,
+    room: string
+  ) {
 
     this.router.navigate(['/booking'], {
       queryParams: {
         destination: destination,
         service: 'Hotel',
-        package: packageName
+        package: hotelName,
+        room: room
       }
     });
 

@@ -14,6 +14,7 @@ import { Tours } from './tours/tours';
 import { Visa } from './visa/visa';
 import { Cruise } from './cruise/cruise';
 import { Forex } from './forex/forex';
+import { HotelDetails } from './hotel-details/hotel-details';
 
 export const routes: Routes = [
 
@@ -47,6 +48,11 @@ export const routes: Routes = [
     component: Hotels
   },
 
+  // Hotel Details
+  {
+    path: 'hotel-details',
+    component: HotelDetails
+  },
   //villas
   {
   path: 'villas',
@@ -99,6 +105,6 @@ export const routes: Routes = [
 {
   path: 'forex',
   component: Forex
-}
+},
 
 ];
