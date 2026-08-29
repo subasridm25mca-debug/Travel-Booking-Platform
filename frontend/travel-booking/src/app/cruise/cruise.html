@@ -8,7 +8,9 @@
 
   <div class="cruise-grid">
 
+
     <!-- Mediterranean -->
+
     <div class="cruise-card">
 
       <div class="cruise-image cruise-mediterranean">
@@ -33,9 +35,11 @@
             <strong>₹89,999</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Italy', 'Mediterranean Cruise')">
             Book Now
-          </a>
+          </button>
 
         </div>
 
@@ -45,6 +49,7 @@
 
 
     <!-- Dubai -->
+
     <div class="cruise-card">
 
       <div class="cruise-image cruise-dubai">
@@ -69,9 +74,11 @@
             <strong>₹49,999</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Dubai', 'Dubai Cruise')">
             Book Now
-          </a>
+          </button>
 
         </div>
 
@@ -81,6 +88,7 @@
 
 
     <!-- Singapore -->
+
     <div class="cruise-card">
 
       <div class="cruise-image cruise-singapore">
@@ -105,9 +113,11 @@
             <strong>₹59,999</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Singapore', 'Singapore Cruise')">
             Book Now
-          </a>
+          </button>
 
         </div>
 
@@ -117,6 +127,7 @@
 
 
     <!-- Maldives -->
+
     <div class="cruise-card">
 
       <div class="cruise-image cruise-maldives">
@@ -141,15 +152,18 @@
             <strong>₹74,999</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Maldives', 'Maldives Cruise')">
             Book Now
-          </a>
+          </button>
 
         </div>
 
       </div>
 
     </div>
+
 
   </div>
 

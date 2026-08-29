@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -9,17 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './booking.html',
   styleUrl: './booking.css'
 })
-export class Booking implements OnInit {
+export class Booking {
 
   booking = {
     fullName: '',
     email: '',
     phone: '',
-    destination: 'Goa',
-    service: 'Flight',
+    destination: '',
+    service: '',
     travelDate: '',
     travellers: '1 Traveller',
-    package: 'Family Package',
+    package: '',
     requests: ''
   };
 
@@ -28,23 +28,18 @@ export class Booking implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
+  ) {
 
     this.route.queryParams.subscribe(params => {
 
-      if (params['destination']) {
-        this.booking.destination = params['destination'];
-      }
+      this.booking.destination =
+        params['destination'] || 'Goa';
 
-      if (params['service']) {
-        this.booking.service = params['service'];
-      }
+      this.booking.service =
+        params['service'] || 'Flight';
 
-      if (params['package']) {
-        this.booking.package = params['package'];
-      }
+      this.booking.package =
+        params['package'] || 'Family Package';
 
     });
 
@@ -59,6 +54,7 @@ export class Booking implements OnInit {
 
       next: (response) => {
         console.log('Booking saved:', response);
+
         this.bookingConfirmed = true;
       },
 
@@ -68,5 +64,7 @@ export class Booking implements OnInit {
       }
 
     });
+
   }
+
 }

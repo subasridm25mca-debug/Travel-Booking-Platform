@@ -22,6 +22,11 @@ const bookingSchema = new mongoose.Schema(
       required: true
     },
 
+    service: {
+      type: String,
+      required: true
+    },
+
     travelDate: {
       type: String,
       required: true

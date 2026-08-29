@@ -5,9 +5,12 @@
     <p>Travel smarter with secure and convenient foreign currency cards</p>
   </div>
 
+
   <div class="forex-grid">
 
+
     <!-- Multi Currency Card -->
+
     <div class="forex-card">
 
       <div class="forex-icon">💳</div>
@@ -35,9 +38,11 @@
             <strong>₹199</strong>
           </div>
 
-          <a routerLink="/booking" class="apply-btn">
+          <button
+            class="apply-btn"
+            (click)="getCard('Multi-Currency Forex Card')">
             Get Card
-          </a>
+          </button>
 
         </div>
 
@@ -47,6 +52,7 @@
 
 
     <!-- Travel Card -->
+
     <div class="forex-card">
 
       <div class="forex-icon">🌎</div>
@@ -74,9 +80,11 @@
             <strong>₹249</strong>
           </div>
 
-          <a routerLink="/booking" class="apply-btn">
+          <button
+            class="apply-btn"
+            (click)="getCard('International Travel Card')">
             Get Card
-          </a>
+          </button>
 
         </div>
 
@@ -86,6 +94,7 @@
 
 
     <!-- Premium Card -->
+
     <div class="forex-card">
 
       <div class="forex-icon">⭐</div>
@@ -113,9 +122,11 @@
             <strong>₹399</strong>
           </div>
 
-          <a routerLink="/booking" class="apply-btn">
+          <button
+            class="apply-btn"
+            (click)="getCard('Premium Forex Card')">
             Get Card
-          </a>
+          </button>
 
         </div>
 
@@ -125,6 +136,7 @@
 
 
     <!-- Student Card -->
+
     <div class="forex-card">
 
       <div class="forex-icon">🎓</div>
@@ -152,15 +164,18 @@
             <strong>₹149</strong>
           </div>
 
-          <a routerLink="/booking" class="apply-btn">
+          <button
+            class="apply-btn"
+            (click)="getCard('Student Forex Card')">
             Get Card
-          </a>
+          </button>
 
         </div>
 
       </div>
 
     </div>
+
 
   </div>
 

@@ -1,11 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tours',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './tours.html',
   styleUrl: './tours.css'
 })
 export class Tours {
+
+  constructor(private router: Router) {}
+
+  bookNow(destination: string, tourName: string) {
+
+    this.router.navigate(['/booking'], {
+      queryParams: {
+        destination: destination,
+        service: 'Tour',
+        package: tourName
+      }
+    });
+
+  }
+
 }

@@ -1,11 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forex',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './forex.html',
   styleUrl: './forex.css'
 })
 export class Forex {
+
+  constructor(private router: Router) {}
+
+  getCard(cardType: string) {
+
+    this.router.navigate(['/booking'], {
+      queryParams: {
+        destination: 'International',
+        service: 'Forex Card',
+        package: cardType
+      }
+    });
+
+  }
+
 }
