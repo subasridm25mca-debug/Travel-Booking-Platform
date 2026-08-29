@@ -66,6 +66,18 @@
         </div>
 
 
+        <!-- Service -->
+        <div class="form-group">
+          <label>Travel Service</label>
+
+          <input
+            type="text"
+            name="service"
+            [(ngModel)]="booking.service"
+            readonly>
+        </div>
+
+
         <!-- Travel Date -->
         <div class="form-group">
           <label>Travel Date</label>
@@ -102,17 +114,11 @@
       <div class="form-group full-width">
         <label>Travel Package</label>
 
-        <select
+        <input
+          type="text"
           name="package"
-          [(ngModel)]="booking.package">
-
-          <option>Family Package</option>
-          <option>Couple Package</option>
-          <option>Adventure Package</option>
-          <option>Luxury Package</option>
-          <option>Budget Package</option>
-
-        </select>
+          [(ngModel)]="booking.package"
+          readonly>
       </div>
 
 
@@ -150,8 +156,16 @@
         </p>
 
         <p>
-          Your trip to <strong>{{ booking.destination }}</strong>
+          Your
+          <strong>{{ booking.service }}</strong>
+          booking to
+          <strong>{{ booking.destination }}</strong>
           has been booked successfully.
+        </p>
+
+        <p>
+          Package:
+          <strong>{{ booking.package }}</strong>
         </p>
 
       </div>

@@ -78,9 +78,11 @@
 
         <strong>₹299</strong>
 
-        <a routerLink="/booking" class="book-btn">
+        <button
+          class="book-btn"
+          (click)="bookNow('Mini Cab')">
           Book Now
-        </a>
+        </button>
 
       </div>
 
@@ -115,9 +117,11 @@
 
         <strong>₹449</strong>
 
-        <a routerLink="/booking" class="book-btn">
+        <button
+          class="book-btn"
+          (click)="bookNow('Sedan Cab')">
           Book Now
-        </a>
+        </button>
 
       </div>
 
@@ -152,9 +156,11 @@
 
         <strong>₹699</strong>
 
-        <a routerLink="/booking" class="book-btn">
+        <button
+          class="book-btn"
+          (click)="bookNow('SUV Cab')">
           Book Now
-        </a>
+        </button>
 
       </div>
 
@@ -189,13 +195,16 @@
 
         <strong>₹999</strong>
 
-        <a routerLink="/booking" class="book-btn">
+        <button
+          class="book-btn"
+          (click)="bookNow('Premium Cab')">
           Book Now
-        </a>
+        </button>
 
       </div>
 
     </div>
+
 
   </div>
 

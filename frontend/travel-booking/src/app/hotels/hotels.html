@@ -7,6 +7,7 @@
 
   <div class="hotel-grid">
 
+    <!-- Goa Hotel -->
     <div class="hotel-card">
       <div class="hotel-image hotel-1">
         <span class="badge">Popular</span>
@@ -24,14 +25,17 @@
             <strong>₹3,999/night</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Goa', 'Luxury Beach Resort')">
             Book Now
-          </a>
+          </button>
         </div>
       </div>
     </div>
 
 
+    <!-- Manali Hotel -->
     <div class="hotel-card">
       <div class="hotel-image hotel-2">
         <span class="badge">Best Seller</span>
@@ -49,14 +53,17 @@
             <strong>₹4,499/night</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Manali', 'Mountain View Hotel')">
             Book Now
-          </a>
+          </button>
         </div>
       </div>
     </div>
 
 
+    <!-- Dubai Hotel -->
     <div class="hotel-card">
       <div class="hotel-image hotel-3">
         <span class="badge">Luxury</span>
@@ -74,14 +81,17 @@
             <strong>₹8,999/night</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Dubai', 'Grand Dubai Hotel')">
             Book Now
-          </a>
+          </button>
         </div>
       </div>
     </div>
 
 
+    <!-- Maldives Hotel -->
     <div class="hotel-card">
       <div class="hotel-image hotel-4">
         <span class="badge">Beach Escape</span>
@@ -99,9 +109,11 @@
             <strong>₹12,999/night</strong>
           </div>
 
-          <a routerLink="/booking" class="book-btn">
+          <button
+            class="book-btn"
+            (click)="bookNow('Maldives', 'Maldives Island Resort')">
             Book Now
-          </a>
+          </button>
         </div>
       </div>
     </div>

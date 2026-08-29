@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -8,13 +9,14 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './booking.html',
   styleUrl: './booking.css'
 })
-export class Booking {
+export class Booking implements OnInit {
 
   booking = {
     fullName: '',
     email: '',
     phone: '',
     destination: 'Goa',
+    service: 'Flight',
     travelDate: '',
     travellers: '1 Traveller',
     package: 'Family Package',
@@ -23,7 +25,30 @@ export class Booking {
 
   bookingConfirmed = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+
+    this.route.queryParams.subscribe(params => {
+
+      if (params['destination']) {
+        this.booking.destination = params['destination'];
+      }
+
+      if (params['service']) {
+        this.booking.service = params['service'];
+      }
+
+      if (params['package']) {
+        this.booking.package = params['package'];
+      }
+
+    });
+
+  }
 
   confirmBooking() {
 
@@ -34,7 +59,6 @@ export class Booking {
 
       next: (response) => {
         console.log('Booking saved:', response);
-
         this.bookingConfirmed = true;
       },
 
