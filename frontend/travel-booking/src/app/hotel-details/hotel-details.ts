@@ -13,18 +13,19 @@ export class HotelDetails {
 
   hotel: any = null;
 
-  // Image slider
-  galleryImages: string[] = [];
-  selectedIndex: number = 0;
-  selectedImage: string = '';
+  // ==================== IMAGE GALLERY ====================
 
-  // Fullscreen image viewer
+  selectedImage: string = '';
+  selectedIndex: number = 0;
   lightboxOpen: boolean = false;
 
 
   hotels: any = {
 
+    // ==================== GOA ====================
+
     'Luxury Beach Resort': {
+
       name: 'Luxury Beach Resort',
       destination: 'Goa',
       location: 'Goa • Beach View',
@@ -37,13 +38,14 @@ export class HotelDetails {
       ambience:
         'Relaxed tropical ambience with palm trees, ocean views, peaceful surroundings and easy access to the beach.',
 
+      mainImage:
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+
       gallery: [
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1400&q=85'
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=80'
       ],
 
       features: [
@@ -74,7 +76,10 @@ export class HotelDetails {
     },
 
 
+    // ==================== MANALI ====================
+
     'Mountain View Hotel': {
+
       name: 'Mountain View Hotel',
       destination: 'Manali',
       location: 'Manali • Mountain View',
@@ -87,13 +92,14 @@ export class HotelDetails {
       ambience:
         'Warm mountain ambience with wooden interiors, fireplace, scenic views and a peaceful environment.',
 
+      mainImage:
+        'https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=1200&q=80',
+
       gallery: [
-        'https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85'
+        'https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80'
       ],
 
       features: [
@@ -124,7 +130,10 @@ export class HotelDetails {
     },
 
 
+    // ==================== DUBAI ====================
+
     'Grand Dubai Hotel': {
+
       name: 'Grand Dubai Hotel',
       destination: 'Dubai',
       location: 'Dubai • City View',
@@ -137,13 +146,14 @@ export class HotelDetails {
       ambience:
         'Modern luxury ambience with elegant interiors, city views, premium facilities and sophisticated surroundings.',
 
+      mainImage:
+        'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80',
+
       gallery: [
-        'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85'
+        'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80'
       ],
 
       features: [
@@ -174,7 +184,10 @@ export class HotelDetails {
     },
 
 
+    // ==================== MALDIVES ====================
+
     'Maldives Island Resort': {
+
       name: 'Maldives Island Resort',
       destination: 'Maldives',
       location: 'Maldives • Ocean View',
@@ -187,14 +200,28 @@ export class HotelDetails {
       ambience:
         'Peaceful tropical ambience with private beaches, ocean views, palm trees and relaxing island surroundings.',
 
+      mainImage:
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+
       gallery: [
-        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1400&q=85',
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85'
-      ],
+
+  'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80'
+
+],
 
       features: [
         '🌊 Ocean View',
@@ -226,6 +253,8 @@ export class HotelDetails {
   };
 
 
+  // ==================== CONSTRUCTOR ====================
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -238,36 +267,56 @@ export class HotelDetails {
       this.hotel = this.hotels[hotelName];
 
       if (!this.hotel) {
+
         this.router.navigate(['/hotels']);
+
         return;
       }
 
-      // Set gallery
-      this.galleryImages = this.hotel.gallery;
-
-      // First image
+      // First image becomes the selected image
       this.selectedIndex = 0;
-      this.selectedImage = this.galleryImages[0];
+      this.selectedImage = this.hotel.gallery[0];
 
     });
 
   }
 
 
-  // ================= IMAGE SLIDER =================
+  // ==================== IMAGE LIST ====================
 
-  selectImage(index: number) {
+  get galleryImages(): string[] {
+
+    if (!this.hotel) {
+      return [];
+    }
+
+    return this.hotel.gallery;
+  }
+
+
+  // ==================== SELECT IMAGE ====================
+
+  selectImage(index: number): void {
 
     this.selectedIndex = index;
-    this.selectedImage = this.galleryImages[index];
+
+    this.selectedImage =
+      this.galleryImages[index];
 
   }
 
 
-  nextImage() {
+  // ==================== NEXT IMAGE ====================
+
+  nextImage(): void {
+
+    if (!this.galleryImages.length) {
+      return;
+    }
 
     this.selectedIndex =
-      (this.selectedIndex + 1) % this.galleryImages.length;
+      (this.selectedIndex + 1) %
+      this.galleryImages.length;
 
     this.selectedImage =
       this.galleryImages[this.selectedIndex];
@@ -275,11 +324,18 @@ export class HotelDetails {
   }
 
 
-  previousImage() {
+  // ==================== PREVIOUS IMAGE ====================
+
+  previousImage(): void {
+
+    if (!this.galleryImages.length) {
+      return;
+    }
 
     this.selectedIndex =
-      (this.selectedIndex - 1 + this.galleryImages.length)
-      % this.galleryImages.length;
+      (this.selectedIndex - 1 +
+        this.galleryImages.length) %
+      this.galleryImages.length;
 
     this.selectedImage =
       this.galleryImages[this.selectedIndex];
@@ -287,41 +343,54 @@ export class HotelDetails {
   }
 
 
-  // ================= LIGHTBOX =================
+  // ==================== OPEN FULLSCREEN ====================
 
-  openLightbox() {
+  openLightbox(): void {
 
     this.lightboxOpen = true;
 
+    document.body.style.overflow = 'hidden';
+
   }
 
 
-  closeLightbox() {
+  // ==================== CLOSE FULLSCREEN ====================
+
+  closeLightbox(): void {
 
     this.lightboxOpen = false;
 
+    document.body.style.overflow = '';
+
   }
 
 
-  // ================= BOOKING =================
+  // ==================== BOOK ROOM ====================
 
-  bookRoom(room: any) {
+  bookRoom(room: any): void {
 
     this.router.navigate(['/booking'], {
+
       queryParams: {
+
         destination: this.hotel.destination,
+
         service: 'Hotel',
+
         package: this.hotel.name,
+
         room: room.name
+
       }
+
     });
 
   }
 
 
-  // ================= BACK =================
+  // ==================== BACK TO HOTELS ====================
 
-  goBack() {
+  goBack(): void {
 
     this.router.navigate(['/hotels']);
 

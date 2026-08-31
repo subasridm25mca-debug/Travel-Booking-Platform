@@ -51,29 +51,25 @@
     </div>
 
 
-    <!-- =================================================
-         HOTEL IMAGE GALLERY
-    ================================================== -->
+    <!-- ================= PROFESSIONAL IMAGE GALLERY ================= -->
 
     <div class="hotel-gallery">
+
+      <!-- MAIN IMAGE -->
 
       <div
         class="main-image"
         (click)="openLightbox()">
 
-        <!-- MAIN IMAGE -->
-
         <img
           [src]="selectedImage"
           [alt]="hotel.name">
 
-
-        <!-- LEFT ARROW -->
+        <!-- Previous -->
 
         <button
           type="button"
           class="gallery-arrow left"
-          aria-label="Previous photo"
           (click)="$event.stopPropagation(); previousImage()">
 
           ‹
@@ -81,12 +77,11 @@
         </button>
 
 
-        <!-- RIGHT ARROW -->
+        <!-- Next -->
 
         <button
           type="button"
           class="gallery-arrow right"
-          aria-label="Next photo"
           (click)="$event.stopPropagation(); nextImage()">
 
           ›
@@ -94,36 +89,57 @@
         </button>
 
 
-        <!-- VIEW PHOTOS -->
-
-        <button
-          type="button"
-          class="view-image"
-          (click)="$event.stopPropagation(); openLightbox()">
-
-          ⛶ &nbsp; View Photos
-
-        </button>
-
-
-        <!-- IMAGE COUNTER -->
+        <!-- Image count -->
 
         <div class="image-counter">
 
-          {{ selectedIndex + 1 }}
-          /
+          {{ selectedIndex + 1 }} /
           {{ galleryImages.length }}
 
         </div>
+
+
+        <!-- View fullscreen -->
+
+        <div class="view-image">
+
+          ⛶ View Photos
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= THUMBNAILS ================= -->
+
+      <div class="gallery-thumbnails">
+
+        @for (
+          image of galleryImages;
+          track image;
+          let i = $index
+        ) {
+
+          <button
+            type="button"
+            class="thumbnail"
+            [class.active]="selectedIndex === i"
+            (click)="selectImage(i)">
+
+            <img
+              [src]="image"
+              [alt]="hotel.name">
+
+          </button>
+
+        }
 
       </div>
 
     </div>
 
 
-    <!-- =================================================
-         FULLSCREEN PHOTO VIEW
-    ================================================== -->
+    <!-- ================= FULLSCREEN LIGHTBOX ================= -->
 
     @if (lightboxOpen) {
 
@@ -131,13 +147,9 @@
         class="lightbox"
         (click)="closeLightbox()">
 
-
-        <!-- CLOSE BUTTON -->
-
         <button
           type="button"
           class="lightbox-close"
-          aria-label="Close photos"
           (click)="$event.stopPropagation(); closeLightbox()">
 
           ×
@@ -145,12 +157,11 @@
         </button>
 
 
-        <!-- PREVIOUS PHOTO -->
+        <!-- Previous -->
 
         <button
           type="button"
           class="lightbox-arrow lightbox-left"
-          aria-label="Previous photo"
           (click)="$event.stopPropagation(); previousImage()">
 
           ‹
@@ -158,7 +169,7 @@
         </button>
 
 
-        <!-- LARGE PHOTO -->
+        <!-- Large image -->
 
         <img
           class="lightbox-image"
@@ -167,12 +178,11 @@
           (click)="$event.stopPropagation()">
 
 
-        <!-- NEXT PHOTO -->
+        <!-- Next -->
 
         <button
           type="button"
           class="lightbox-arrow lightbox-right"
-          aria-label="Next photo"
           (click)="$event.stopPropagation(); nextImage()">
 
           ›
@@ -180,14 +190,13 @@
         </button>
 
 
-        <!-- PHOTO COUNTER -->
+        <!-- Counter -->
 
         <div
           class="lightbox-counter"
           (click)="$event.stopPropagation()">
 
-          {{ selectedIndex + 1 }}
-          /
+          {{ selectedIndex + 1 }} /
           {{ galleryImages.length }}
 
         </div>
@@ -197,14 +206,11 @@
     }
 
 
-    <!-- =================================================
-         HOTEL INFORMATION
-    ================================================== -->
+    <!-- ================= HOTEL INFORMATION ================= -->
 
     <div class="hotel-info">
 
-
-      <!-- ================= LEFT SIDE ================= -->
+      <!-- LEFT -->
 
       <div class="hotel-main-info">
 
@@ -226,7 +232,7 @@
         </p>
 
 
-        <!-- ================= FACILITIES ================= -->
+        <!-- FEATURES -->
 
         <h2>
           Facilities & Amenities
@@ -252,7 +258,7 @@
       </div>
 
 
-      <!-- ================= RIGHT SIDE ================= -->
+      <!-- RIGHT -->
 
       <div class="booking-summary">
 
@@ -307,9 +313,7 @@
     </div>
 
 
-    <!-- =================================================
-         AVAILABLE ROOMS
-    ================================================== -->
+    <!-- ================= ROOMS ================= -->
 
     <div class="rooms-section">
 
@@ -330,9 +334,6 @@
         ) {
 
           <div class="room-card">
-
-
-            <!-- ROOM IMAGE -->
 
             <img
               [src]="room.image"
