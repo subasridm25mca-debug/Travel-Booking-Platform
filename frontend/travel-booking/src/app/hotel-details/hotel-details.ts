@@ -4,17 +4,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-details',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './hotel-details.html',
   styleUrl: './hotel-details.css'
 })
 export class HotelDetails {
 
-  hotel: any;
+  hotel: any = null;
+
+  // ==================== IMAGE GALLERY ====================
+
+  selectedImage: string = '';
+  selectedIndex: number = 0;
+  lightboxOpen: boolean = false;
+
 
   hotels: any = {
 
+    // ==================== GOA ====================
+
     'Luxury Beach Resort': {
+
       name: 'Luxury Beach Resort',
       destination: 'Goa',
       location: 'Goa • Beach View',
@@ -65,7 +76,10 @@ export class HotelDetails {
     },
 
 
+    // ==================== MANALI ====================
+
     'Mountain View Hotel': {
+
       name: 'Mountain View Hotel',
       destination: 'Manali',
       location: 'Manali • Mountain View',
@@ -116,7 +130,10 @@ export class HotelDetails {
     },
 
 
+    // ==================== DUBAI ====================
+
     'Grand Dubai Hotel': {
+
       name: 'Grand Dubai Hotel',
       destination: 'Dubai',
       location: 'Dubai • City View',
@@ -167,7 +184,10 @@ export class HotelDetails {
     },
 
 
+    // ==================== MALDIVES ====================
+
     'Maldives Island Resort': {
+
       name: 'Maldives Island Resort',
       destination: 'Maldives',
       location: 'Maldives • Ocean View',
@@ -184,11 +204,24 @@ export class HotelDetails {
         'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
 
       gallery: [
-        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80'
-      ],
+
+  'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80',
+
+  'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80'
+
+],
 
       features: [
         '🌊 Ocean View',
@@ -220,6 +253,8 @@ export class HotelDetails {
   };
 
 
+  // ==================== CONSTRUCTOR ====================
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -232,30 +267,133 @@ export class HotelDetails {
       this.hotel = this.hotels[hotelName];
 
       if (!this.hotel) {
+
         this.router.navigate(['/hotels']);
+
+        return;
       }
+
+      // First image becomes the selected image
+      this.selectedIndex = 0;
+      this.selectedImage = this.hotel.gallery[0];
 
     });
 
   }
 
 
-  bookRoom(room: any) {
+  // ==================== IMAGE LIST ====================
+
+  get galleryImages(): string[] {
+
+    if (!this.hotel) {
+      return [];
+    }
+
+    return this.hotel.gallery;
+  }
+
+
+  // ==================== SELECT IMAGE ====================
+
+  selectImage(index: number): void {
+
+    this.selectedIndex = index;
+
+    this.selectedImage =
+      this.galleryImages[index];
+
+  }
+
+
+  // ==================== NEXT IMAGE ====================
+
+  nextImage(): void {
+
+    if (!this.galleryImages.length) {
+      return;
+    }
+
+    this.selectedIndex =
+      (this.selectedIndex + 1) %
+      this.galleryImages.length;
+
+    this.selectedImage =
+      this.galleryImages[this.selectedIndex];
+
+  }
+
+
+  // ==================== PREVIOUS IMAGE ====================
+
+  previousImage(): void {
+
+    if (!this.galleryImages.length) {
+      return;
+    }
+
+    this.selectedIndex =
+      (this.selectedIndex - 1 +
+        this.galleryImages.length) %
+      this.galleryImages.length;
+
+    this.selectedImage =
+      this.galleryImages[this.selectedIndex];
+
+  }
+
+
+  // ==================== OPEN FULLSCREEN ====================
+
+  openLightbox(): void {
+
+    this.lightboxOpen = true;
+
+    document.body.style.overflow = 'hidden';
+
+  }
+
+
+  // ==================== CLOSE FULLSCREEN ====================
+
+  closeLightbox(): void {
+
+    this.lightboxOpen = false;
+
+    document.body.style.overflow = '';
+
+  }
+
+
+  // ==================== BOOK ROOM ====================
+
+  bookRoom(room: any): void {
 
     this.router.navigate(['/booking'], {
+
       queryParams: {
+
         destination: this.hotel.destination,
+
         service: 'Hotel',
+
         package: this.hotel.name,
+
         room: room.name
+
       }
+
     });
 
   }
 
 
-  goBack() {
+  // ==================== BACK TO HOTELS ====================
+
+  goBack(): void {
+
     this.router.navigate(['/hotels']);
+
   }
 
 }
