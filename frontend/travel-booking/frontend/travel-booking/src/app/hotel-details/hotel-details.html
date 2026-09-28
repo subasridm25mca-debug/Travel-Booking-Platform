@@ -1,0 +1,391 @@
+<section class="hotel-details-page">
+
+  <!-- ================= BACK BUTTON ================= -->
+
+  <div class="back-container">
+
+    <button
+      type="button"
+      class="back-btn"
+      (click)="goBack()">
+
+      ← Back to Hotels
+
+    </button>
+
+  </div>
+
+
+  @if (hotel) {
+
+    <!-- ================= HOTEL HEADER ================= -->
+
+    <div class="hotel-header">
+
+      <div>
+
+        <span class="badge">
+          {{ hotel.badge }}
+        </span>
+
+        <h1>
+          {{ hotel.name }}
+        </h1>
+
+        <p class="location">
+          📍 {{ hotel.location }}
+        </p>
+
+        <div class="rating">
+
+          ★★★★★
+
+          <span>
+            {{ hotel.rating }}
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         HOTEL IMAGE GALLERY
+    ================================================== -->
+
+    <div class="hotel-gallery">
+
+      <div
+        class="main-image"
+        (click)="openLightbox()">
+
+        <!-- MAIN IMAGE -->
+
+        <img
+          [src]="selectedImage"
+          [alt]="hotel.name">
+
+
+        <!-- LEFT ARROW -->
+
+        <button
+          type="button"
+          class="gallery-arrow left"
+          aria-label="Previous photo"
+          (click)="$event.stopPropagation(); previousImage()">
+
+          ‹
+
+        </button>
+
+
+        <!-- RIGHT ARROW -->
+
+        <button
+          type="button"
+          class="gallery-arrow right"
+          aria-label="Next photo"
+          (click)="$event.stopPropagation(); nextImage()">
+
+          ›
+
+        </button>
+
+
+        <!-- VIEW PHOTOS -->
+
+        <button
+          type="button"
+          class="view-image"
+          (click)="$event.stopPropagation(); openLightbox()">
+
+          ⛶ &nbsp; View Photos
+
+        </button>
+
+
+        <!-- IMAGE COUNTER -->
+
+        <div class="image-counter">
+
+          {{ selectedIndex + 1 }}
+          /
+          {{ galleryImages.length }}
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FULLSCREEN PHOTO VIEW
+    ================================================== -->
+
+    @if (lightboxOpen) {
+
+      <div
+        class="lightbox"
+        (click)="closeLightbox()">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+          type="button"
+          class="lightbox-close"
+          aria-label="Close photos"
+          (click)="$event.stopPropagation(); closeLightbox()">
+
+          ×
+
+        </button>
+
+
+        <!-- PREVIOUS PHOTO -->
+
+        <button
+          type="button"
+          class="lightbox-arrow lightbox-left"
+          aria-label="Previous photo"
+          (click)="$event.stopPropagation(); previousImage()">
+
+          ‹
+
+        </button>
+
+
+        <!-- LARGE PHOTO -->
+
+        <img
+          class="lightbox-image"
+          [src]="selectedImage"
+          [alt]="hotel.name"
+          (click)="$event.stopPropagation()">
+
+
+        <!-- NEXT PHOTO -->
+
+        <button
+          type="button"
+          class="lightbox-arrow lightbox-right"
+          aria-label="Next photo"
+          (click)="$event.stopPropagation(); nextImage()">
+
+          ›
+
+        </button>
+
+
+        <!-- PHOTO COUNTER -->
+
+        <div
+          class="lightbox-counter"
+          (click)="$event.stopPropagation()">
+
+          {{ selectedIndex + 1 }}
+          /
+          {{ galleryImages.length }}
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <!-- =================================================
+         HOTEL INFORMATION
+    ================================================== -->
+
+    <div class="hotel-info">
+
+
+      <!-- ================= LEFT SIDE ================= -->
+
+      <div class="hotel-main-info">
+
+        <h2>
+          About {{ hotel.name }}
+        </h2>
+
+        <p class="description">
+          {{ hotel.description }}
+        </p>
+
+
+        <h2>
+          Hotel Experience
+        </h2>
+
+        <p class="ambience">
+          {{ hotel.ambience }}
+        </p>
+
+
+        <!-- ================= FACILITIES ================= -->
+
+        <h2>
+          Facilities & Amenities
+        </h2>
+
+        <div class="features">
+
+          @for (
+            feature of hotel.features;
+            track feature
+          ) {
+
+            <div class="feature">
+
+              {{ feature }}
+
+            </div>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= RIGHT SIDE ================= -->
+
+      <div class="booking-summary">
+
+        <h3>
+          Why Stay Here?
+        </h3>
+
+        <p>
+          Enjoy a comfortable and memorable stay
+          with premium facilities and beautiful
+          surroundings.
+        </p>
+
+
+        <div class="summary-line">
+
+          <span>
+            ⭐ Rating
+          </span>
+
+          <strong>
+            {{ hotel.rating }}/5
+          </strong>
+
+        </div>
+
+
+        <div class="summary-line">
+
+          <span>
+            📍 Location
+          </span>
+
+          <strong>
+            {{ hotel.destination }}
+          </strong>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="summary-book-btn"
+          (click)="bookRoom(hotel.rooms[0])">
+
+          Book This Hotel
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         AVAILABLE ROOMS
+    ================================================== -->
+
+    <div class="rooms-section">
+
+      <h2>
+        Available Rooms
+      </h2>
+
+      <p class="rooms-subtitle">
+        Choose a room that suits your stay
+      </p>
+
+
+      <div class="rooms-grid">
+
+        @for (
+          room of hotel.rooms;
+          track room.name
+        ) {
+
+          <div class="room-card">
+
+
+            <!-- ROOM IMAGE -->
+
+            <img
+              [src]="room.image"
+              [alt]="room.name">
+
+
+            <div class="room-content">
+
+              <h3>
+                {{ room.name }}
+              </h3>
+
+              <p class="room-details">
+                {{ room.details }}
+              </p>
+
+
+              <div class="room-bottom">
+
+                <div>
+
+                  <small>
+                    Starting from
+                  </small>
+
+                  <strong>
+                    {{ room.price }}
+                  </strong>
+
+                </div>
+
+
+                <button
+                  type="button"
+                  class="room-book-btn"
+                  (click)="bookRoom(room)">
+
+                  Book Now
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+  }
+
+</section>

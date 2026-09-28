@@ -1,317 +1,329 @@
 <section class="hotels-page">
 
-  <div class="page-header">
-    <h1>Find Your Perfect Stay</h1>
-    <p>
-      Explore hotels, rooms, amenities and choose the perfect stay for your trip
-    </p>
+  <!-- ================= HEADER ================= -->
+
+  <div class="hotels-header">
+
+    <div>
+
+      <span class="section-label">
+        YOUR STAY
+      </span>
+
+      <h1>
+        {{ pageTitle }}
+      </h1>
+
+      <p *ngIf="selectedDestination">
+        Places to stay in {{ selectedDestination }}
+      </p>
+
+      <p *ngIf="!selectedDestination">
+        Discover comfortable stays for your next journey.
+      </p>
+
+    </div>
+
   </div>
 
 
-  <div class="hotel-grid">
+  <!-- ================= NO HOTELS ================= -->
+
+  <div
+    class="no-hotels"
+    *ngIf="displayedHotels.length === 0">
+
+    <div class="no-hotels-icon">
+      ◌
+    </div>
+
+    <h2>No stays found</h2>
+
+    <p>
+      We couldn't find hotels for this destination yet.
+    </p>
+
+  </div>
 
 
-    <!-- ==================== GOA ==================== -->
+  <!-- ================= HOTEL GRID ================= -->
 
-    <div class="hotel-card">
+  <div
+    class="hotels-grid"
+    *ngIf="displayedHotels.length > 0">
 
-      <div class="hotel-image hotel-1">
-        <span class="badge">Popular</span>
+
+    <article
+      class="hotel-card"
+      *ngFor="let hotel of displayedHotels; let i = index">
+
+
+      <!-- ================= IMAGE ================= -->
+
+      <div class="hotel-image">
+
+        <img
+          [src]="hotel.images[
+            hotelImageIndexes[hotels.indexOf(hotel)]
+          ]"
+          [alt]="hotel.name"
+        >
+
+
+        <!-- BADGE -->
+
+        <span class="hotel-badge">
+          {{ hotel.badge }}
+        </span>
+
+
+        <!-- FAVORITE -->
+
+        <button
+          type="button"
+          class="favorite-btn"
+          aria-label="Add to favorites">
+
+          ♡
+
+        </button>
+
+
+        <!-- LEFT -->
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-left"
+          (click)="previousHotelImage(i)"
+          aria-label="Previous image">
+
+          ‹
+
+        </button>
+
+
+        <!-- RIGHT -->
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-right"
+          (click)="nextHotelImage(i)"
+          aria-label="Next image">
+
+          ›
+
+        </button>
+
+
+        <!-- IMAGE COUNT -->
+
+        <span class="image-count">
+
+          {{
+            hotelImageIndexes[hotels.indexOf(hotel)] + 1
+          }}
+
+          /
+
+          {{ hotel.images.length }}
+
+        </span>
+
       </div>
+
+
+      <!-- ================= CONTENT ================= -->
 
       <div class="hotel-content">
 
-        <h2>Luxury Beach Resort</h2>
 
-        <p>📍 Goa • Beach View</p>
+        <div class="hotel-title-row">
 
-        <div class="rating">
-          ★★★★★ <span>4.8</span>
+          <h2>
+            {{ hotel.name }}
+          </h2>
+
         </div>
 
-        <p class="hotel-description">
-          Beautiful beachside resort with a relaxing atmosphere,
-          swimming pool and premium rooms.
+
+        <p class="hotel-location">
+
+          📍 {{ hotel.location }}
+
         </p>
 
-        <div class="hotel-features">
-          <span>🏖️ Beach View</span>
-          <span>🏊 Pool</span>
-          <span>📶 Free Wi-Fi</span>
-          <span>🍳 Breakfast</span>
+
+        <!-- RATING -->
+
+        <div class="hotel-rating">
+
+          <span class="stars">
+            ★★★★★
+          </span>
+
+          <strong>
+            {{ hotel.rating }}
+          </strong>
+
+          <span class="reviews">
+            {{ hotel.reviews }}
+          </span>
+
         </div>
 
-        <div class="room-type">
-          <strong>🏠 2 BHK Sea View Room</strong>
-          <span>2 Bedrooms • 2 Bathrooms • 4 Guests</span>
+
+        <!-- DESCRIPTION -->
+
+        <p class="hotel-description">
+
+          {{ hotel.description }}
+
+        </p>
+
+
+        <!-- AMENITIES -->
+
+        <div class="amenities">
+
+          <span
+            *ngFor="let amenity of hotel.amenities">
+
+            {{ amenity }}
+
+          </span>
+
         </div>
 
-        <div class="hotel-bottom">
+
+        <!-- ================= STAY OPTION ================= -->
+
+        <div class="stay-preview">
 
           <div>
-            <small>Starting from</small>
-            <strong>₹3,999/night</strong>
+
+            <span class="stay-label">
+              AVAILABLE STAY
+            </span>
+
+            <strong>
+              {{ hotel.room }}
+            </strong>
+
           </div>
 
-          <div class="hotel-buttons">
+          <div class="price">
 
-            <!-- View Hotel -->
-            <button
-              type="button"
-              class="view-btn"
-              (click)="viewHotel(
-                'Goa',
-                'Luxury Beach Resort',
-                '2 BHK Sea View Room'
-              )">
-              View Hotel
-            </button>
+            <strong>
+              {{ hotel.price }}
+            </strong>
 
-            <!-- Direct Booking -->
-            <button
-              type="button"
-              class="book-btn"
-              (click)="bookNow(
-                'Goa',
-                'Luxury Beach Resort',
-                '2 BHK Sea View Room'
-              )">
-              Book Now
-            </button>
+            <small>
+              / night
+            </small>
 
           </div>
 
         </div>
+
+
+        <!-- ================= ACTIONS ================= -->
+
+        <div class="hotel-actions">
+
+          <button
+            type="button"
+            class="view-btn"
+            (click)="viewHotel(hotel)">
+
+            View Hotel
+
+          </button>
+
+
+          <button
+            type="button"
+            class="book-btn"
+            (click)="bookNow(hotel)">
+
+            Book Now
+
+          </button>
+
+        </div>
+
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- ================= TRUST ================= -->
+
+  <div class="trust-section">
+
+    <div class="trust-item">
+
+      <span class="trust-icon">
+        ✦
+      </span>
+
+      <div>
+
+        <strong>
+          Thoughtful stays
+        </strong>
+
+        <p>
+          Comfortable options for every journey
+        </p>
 
       </div>
 
     </div>
 
 
-    <!-- ==================== MANALI ==================== -->
+    <div class="trust-item">
 
-    <div class="hotel-card">
+      <span class="trust-icon">
+        ◇
+      </span>
 
-      <div class="hotel-image hotel-2">
-        <span class="badge">Best Seller</span>
-      </div>
+      <div>
 
-      <div class="hotel-content">
+        <strong>
+          Easy booking
+        </strong>
 
-        <h2>Mountain View Hotel</h2>
-
-        <p>📍 Manali • Mountain View</p>
-
-        <div class="rating">
-          ★★★★★ <span>4.7</span>
-        </div>
-
-        <p class="hotel-description">
-          A peaceful mountain hotel surrounded by beautiful
-          views, perfect for families and groups.
+        <p>
+          Choose your stay in just a few steps
         </p>
-
-        <div class="hotel-features">
-          <span>🏔️ Mountain View</span>
-          <span>🔥 Fireplace</span>
-          <span>📶 Free Wi-Fi</span>
-          <span>🍽️ Restaurant</span>
-        </div>
-
-        <div class="room-type">
-          <strong>🏠 3 BHK Mountain Suite</strong>
-          <span>3 Bedrooms • 3 Bathrooms • 6 Guests</span>
-        </div>
-
-        <div class="hotel-bottom">
-
-          <div>
-            <small>Starting from</small>
-            <strong>₹4,499/night</strong>
-          </div>
-
-          <div class="hotel-buttons">
-
-            <button
-              type="button"
-              class="view-btn"
-              (click)="viewHotel(
-                'Manali',
-                'Mountain View Hotel',
-                '3 BHK Mountain Suite'
-              )">
-              View Hotel
-            </button>
-
-            <button
-              type="button"
-              class="book-btn"
-              (click)="bookNow(
-                'Manali',
-                'Mountain View Hotel',
-                '3 BHK Mountain Suite'
-              )">
-              Book Now
-            </button>
-
-          </div>
-
-        </div>
 
       </div>
 
     </div>
 
 
-    <!-- ==================== DUBAI ==================== -->
+    <div class="trust-item">
 
-    <div class="hotel-card">
+      <span class="trust-icon">
+        ✓
+      </span>
 
-      <div class="hotel-image hotel-3">
-        <span class="badge">Luxury</span>
-      </div>
+      <div>
 
-      <div class="hotel-content">
+        <strong>
+          Secure experience
+        </strong>
 
-        <h2>Grand Dubai Hotel</h2>
-
-        <p>📍 Dubai • City View</p>
-
-        <div class="rating">
-          ★★★★★ <span>4.9</span>
-        </div>
-
-        <p class="hotel-description">
-          Premium city hotel offering luxurious rooms,
-          modern interiors and world-class facilities.
+        <p>
+          Your booking details stay protected
         </p>
-
-        <div class="hotel-features">
-          <span>🌆 City View</span>
-          <span>🏊 Infinity Pool</span>
-          <span>💪 Gym</span>
-          <span>🍽️ Restaurant</span>
-        </div>
-
-        <div class="room-type">
-          <strong>🏠 Premium Suite</strong>
-          <span>1 Bedroom • 1 Bathroom • 2 Guests</span>
-        </div>
-
-        <div class="hotel-bottom">
-
-          <div>
-            <small>Starting from</small>
-            <strong>₹8,999/night</strong>
-          </div>
-
-          <div class="hotel-buttons">
-
-            <button
-              type="button"
-              class="view-btn"
-              (click)="viewHotel(
-                'Dubai',
-                'Grand Dubai Hotel',
-                'Premium Suite'
-              )">
-              View Hotel
-            </button>
-
-            <button
-              type="button"
-              class="book-btn"
-              (click)="bookNow(
-                'Dubai',
-                'Grand Dubai Hotel',
-                'Premium Suite'
-              )">
-              Book Now
-            </button>
-
-          </div>
-
-        </div>
 
       </div>
 
     </div>
-
-
-    <!-- ==================== MALDIVES ==================== -->
-
-    <div class="hotel-card">
-
-      <div class="hotel-image hotel-4">
-        <span class="badge">Beach Escape</span>
-      </div>
-
-      <div class="hotel-content">
-
-        <h2>Maldives Island Resort</h2>
-
-        <p>📍 Maldives • Ocean View</p>
-
-        <div class="rating">
-          ★★★★★ <span>4.9</span>
-        </div>
-
-        <p class="hotel-description">
-          Private island resort with stunning ocean views,
-          peaceful surroundings and premium accommodation.
-        </p>
-
-        <div class="hotel-features">
-          <span>🌊 Ocean View</span>
-          <span>🏝️ Private Island</span>
-          <span>🏊 Pool</span>
-          <span>🍳 Breakfast</span>
-        </div>
-
-        <div class="room-type">
-          <strong>🏠 Ocean Villa</strong>
-          <span>1 Bedroom • 1 Bathroom • 2 Guests</span>
-        </div>
-
-        <div class="hotel-bottom">
-
-          <div>
-            <small>Starting from</small>
-            <strong>₹12,999/night</strong>
-          </div>
-
-          <div class="hotel-buttons">
-
-            <button
-              type="button"
-              class="view-btn"
-              (click)="viewHotel(
-                'Maldives',
-                'Maldives Island Resort',
-                'Ocean Villa'
-              )">
-              View Hotel
-            </button>
-
-            <button
-              type="button"
-              class="book-btn"
-              (click)="bookNow(
-                'Maldives',
-                'Maldives Island Resort',
-                'Ocean Villa'
-              )">
-              Book Now
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
 
   </div>
 

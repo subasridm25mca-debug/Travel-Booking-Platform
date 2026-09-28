@@ -1,0 +1,1125 @@
+/* =========================================================
+   HOTEL DETAILS PAGE
+========================================================= */
+
+.hotel-details-page {
+  min-height: calc(100vh - 100px);
+  background: #f6f8fb;
+  padding: 30px 6% 70px;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-container {
+  max-width: 1150px;
+  margin: 0 auto 18px;
+}
+
+.back-btn {
+  border: 1px solid #087cf5;
+  background: white;
+  color: #087cf5;
+
+  padding: 9px 18px;
+  border-radius: 22px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  background: #087cf5;
+  color: white;
+  transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   HOTEL HEADER
+========================================================= */
+
+.hotel-header {
+  max-width: 1150px;
+  margin: 0 auto 22px;
+
+  background: white;
+
+  padding: 22px 28px;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.hotel-header h1 {
+  margin: 9px 0 7px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #18212f;
+}
+
+.hotel-header .badge {
+  display: inline-block;
+
+  background: #eef6ff;
+  color: #087cf5;
+
+  padding: 5px 11px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.location {
+  margin: 0 0 10px;
+
+  color: #667085;
+
+  font-size: 13px;
+}
+
+.rating {
+  color: #ff9f1a;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rating span {
+  color: #475467;
+
+  margin-left: 6px;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   PROFESSIONAL HOTEL IMAGE GALLERY
+========================================================= */
+
+.hotel-gallery {
+  max-width: 1150px;
+
+  height: 500px;
+
+  margin: 0 auto 30px;
+
+  position: relative;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: #111;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+.main-image {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+.main-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.30),
+      transparent 30%
+    );
+
+  pointer-events: none;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.3s ease;
+}
+
+
+/* Professional hover effect */
+
+.main-image:hover img {
+  transform: scale(1.02);
+}
+
+
+/* =========================================================
+   GALLERY ARROWS
+========================================================= */
+
+.gallery-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 46px;
+  height: 46px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #1f2937;
+
+  font-size: 34px;
+
+  line-height: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gallery-arrow.left {
+  left: 22px;
+}
+
+.gallery-arrow.right {
+  right: 22px;
+}
+
+.gallery-arrow:hover {
+  background: white;
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+
+  box-shadow:
+    0 7px 24px rgba(0, 0, 0, 0.28);
+}
+
+.gallery-arrow:active {
+  transform:
+    translateY(-50%)
+    scale(0.96);
+}
+
+
+/* =========================================================
+   VIEW PHOTOS BUTTON
+========================================================= */
+
+.view-image {
+  position: absolute;
+
+  left: 22px;
+  bottom: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  padding: 10px 16px;
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  color: #1f2937;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  z-index: 6;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.view-image:hover {
+  background: white;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   IMAGE COUNTER
+========================================================= */
+
+.image-counter {
+  position: absolute;
+
+  right: 22px;
+  bottom: 20px;
+
+  padding: 8px 13px;
+
+  border-radius: 20px;
+
+  background: rgba(0, 0, 0, 0.70);
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  backdrop-filter: blur(7px);
+
+  z-index: 6;
+}
+
+
+/* =========================================================
+   HOTEL INFORMATION
+========================================================= */
+
+.hotel-info {
+  max-width: 1150px;
+
+  margin: 0 auto 38px;
+
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 24px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   HOTEL MAIN INFORMATION
+========================================================= */
+
+.hotel-main-info {
+  background: white;
+
+  padding: 28px;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.06);
+}
+
+.hotel-main-info h2 {
+  margin: 0 0 10px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  color: #18212f;
+
+  font-size: 21px;
+}
+
+.hotel-main-info h2:not(:first-child) {
+  margin-top: 26px;
+}
+
+.description,
+.ambience {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.feature {
+  background: #f5f8fc;
+
+  border: 1px solid #e8edf4;
+
+  padding: 11px;
+
+  border-radius: 8px;
+
+  color: #475467;
+
+  font-size: 12px;
+
+  text-align: center;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.feature:hover {
+  background: #eef6ff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOOKING SUMMARY
+========================================================= */
+
+.booking-summary {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.06);
+
+  position: sticky;
+
+  top: 20px;
+}
+
+.booking-summary h3 {
+  margin: 0 0 10px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 20px;
+
+  color: #18212f;
+}
+
+.booking-summary > p {
+  margin: 0 0 18px;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SUMMARY LINES
+========================================================= */
+
+.summary-line {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 11px 0;
+
+  border-top: 1px solid #edf0f4;
+
+  font-size: 12px;
+}
+
+.summary-line span {
+  color: #667085;
+}
+
+.summary-line strong {
+  color: #1d2939;
+}
+
+
+/* =========================================================
+   SUMMARY BOOK BUTTON
+========================================================= */
+
+.summary-book-btn {
+  width: 100%;
+
+  margin-top: 15px;
+
+  border: none;
+
+  background: #087cf5;
+
+  color: white;
+
+  padding: 12px 20px;
+
+  border-radius: 24px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(8, 124, 245, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.summary-book-btn:hover {
+  background: #0668d3;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(8, 124, 245, 0.28);
+}
+
+
+/* =========================================================
+   ROOMS SECTION
+========================================================= */
+
+.rooms-section {
+  max-width: 1150px;
+
+  margin: 0 auto;
+}
+
+.rooms-section h2 {
+  margin: 0;
+
+  text-align: center;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 27px;
+
+  color: #18212f;
+}
+
+.rooms-subtitle {
+  margin: 7px 0 24px;
+
+  text-align: center;
+
+  color: #667085;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ROOMS GRID
+========================================================= */
+
+.rooms-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   ROOM CARD
+========================================================= */
+
+.room-card {
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.11);
+}
+
+
+/* Room image */
+
+.room-card > img {
+  width: 100%;
+
+  height: 220px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   ROOM CONTENT
+========================================================= */
+
+.room-content {
+  padding: 20px;
+}
+
+.room-content h3 {
+  margin: 0 0 7px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  color: #18212f;
+
+  font-size: 18px;
+}
+
+.room-details {
+  margin: 0 0 17px;
+
+  color: #667085;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ROOM BOTTOM
+========================================================= */
+
+.room-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+.room-bottom small {
+  display: block;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+}
+
+.room-bottom strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #087cf5;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   ROOM BOOK BUTTON
+========================================================= */
+
+.room-book-btn {
+  border: none;
+
+  background: #087cf5;
+
+  color: white;
+
+  padding: 9px 17px;
+
+  border-radius: 22px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.room-book-btn:hover {
+  background: #0668d3;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FULLSCREEN LIGHTBOX
+========================================================= */
+
+.lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  background: rgba(7, 10, 15, 0.96);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  animation: lightboxFade 0.2s ease;
+}
+
+@keyframes lightboxFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   LIGHTBOX IMAGE
+========================================================= */
+
+.lightbox-image {
+  max-width: 90vw;
+
+  max-height: 86vh;
+
+  object-fit: contain;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55);
+
+  animation: imageAppear 0.25s ease;
+}
+
+@keyframes imageAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   LIGHTBOX CLOSE
+========================================================= */
+
+.lightbox-close {
+  position: absolute;
+
+  top: 22px;
+
+  right: 28px;
+
+  width: 45px;
+
+  height: 45px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #222;
+
+  font-size: 29px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: white;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   LIGHTBOX ARROWS
+========================================================= */
+
+.lightbox-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 52px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #222;
+
+  font-size: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.lightbox-left {
+  left: 30px;
+}
+
+.lightbox-right {
+  right: 30px;
+}
+
+.lightbox-arrow:hover {
+  background: white;
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+
+/* =========================================================
+   LIGHTBOX COUNTER
+========================================================= */
+
+.lightbox-counter {
+  position: absolute;
+
+  bottom: 25px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 8px 16px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hotel-details-page {
+    padding: 25px 4% 55px;
+  }
+
+  .hotel-gallery {
+    height: 400px;
+  }
+
+  .hotel-info {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary {
+    position: static;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .hotel-details-page {
+    padding: 20px 4% 45px;
+  }
+
+  .hotel-header {
+    padding: 20px;
+  }
+
+  .hotel-header h1 {
+    font-size: 25px;
+  }
+
+
+  /* Gallery */
+
+  .hotel-gallery {
+    height: 300px;
+
+    border-radius: 14px;
+  }
+
+
+  /* Gallery arrows */
+
+  .gallery-arrow {
+    width: 38px;
+
+    height: 38px;
+
+    font-size: 28px;
+  }
+
+  .gallery-arrow.left {
+    left: 10px;
+  }
+
+  .gallery-arrow.right {
+    right: 10px;
+  }
+
+
+  /* View photos */
+
+  .view-image {
+    left: 10px;
+
+    bottom: 10px;
+
+    padding: 8px 12px;
+
+    font-size: 11px;
+  }
+
+
+  /* Counter */
+
+  .image-counter {
+    right: 10px;
+
+    bottom: 10px;
+
+    padding: 7px 10px;
+
+    font-size: 11px;
+  }
+
+
+  /* Information */
+
+  .hotel-main-info,
+  .booking-summary {
+    padding: 20px;
+  }
+
+
+  /* Features */
+
+  .features {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  /* Rooms */
+
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-card > img {
+    height: 200px;
+  }
+
+
+  /* Lightbox */
+
+  .lightbox {
+    padding: 15px;
+  }
+
+  .lightbox-image {
+    max-width: 96vw;
+
+    max-height: 78vh;
+  }
+
+  .lightbox-close {
+    top: 14px;
+
+    right: 14px;
+
+    width: 40px;
+
+    height: 40px;
+
+    font-size: 25px;
+  }
+
+  .lightbox-arrow {
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 30px;
+  }
+
+  .lightbox-left {
+    left: 10px;
+  }
+
+  .lightbox-right {
+    right: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .hotel-gallery {
+    height: 260px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-header h1 {
+    font-size: 22px;
+  }
+
+  .rooms-section h2 {
+    font-size: 24px;
+  }
+
+}

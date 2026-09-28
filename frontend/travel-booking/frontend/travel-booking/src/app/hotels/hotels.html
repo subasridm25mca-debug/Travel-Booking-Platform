@@ -1,0 +1,670 @@
+<section class="hotels-page">
+
+  <!-- ================= PAGE HEADER ================= -->
+
+  <div class="hotels-header">
+
+    <div>
+      <span class="section-label">STAY WITH COMFORT</span>
+
+      <h1>Find Your Perfect Stay</h1>
+
+      <p>
+        Discover comfortable hotels and resorts for your next journey.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ================= HOTEL CARDS ================= -->
+
+  <div class="hotels-grid">
+
+
+    <!-- ================================================= -->
+    <!-- LUXURY BEACH RESORT -->
+    <!-- ================================================= -->
+
+    <article class="hotel-card">
+
+      <!-- IMAGE -->
+
+      <div class="hotel-image">
+
+        <img
+          [src]="hotelImages[0][hotelImageIndexes[0]]"
+          alt="Luxury Beach Resort"
+        >
+
+        <span class="hotel-badge popular">
+          Popular
+        </span>
+
+
+        <!-- FAVORITE -->
+
+        <button
+          type="button"
+          class="favorite-btn"
+          aria-label="Add to favorites">
+
+          ♡
+
+        </button>
+
+
+        <!-- LEFT ARROW -->
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-left"
+          (click)="previousHotelImage(0)"
+          aria-label="Previous image">
+
+          ‹
+
+        </button>
+
+
+        <!-- RIGHT ARROW -->
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-right"
+          (click)="nextHotelImage(0)"
+          aria-label="Next image">
+
+          ›
+
+        </button>
+
+
+        <!-- IMAGE COUNT -->
+
+        <span class="image-count">
+
+          {{ hotelImageIndexes[0] + 1 }} /
+          {{ hotelImages[0].length }}
+
+        </span>
+
+      </div>
+
+
+      <!-- CONTENT -->
+
+      <div class="hotel-content">
+
+        <h2>Luxury Beach Resort</h2>
+
+        <p class="hotel-location">
+          📍 Goa • Beach View
+        </p>
+
+
+        <div class="hotel-rating">
+
+          <span class="stars">
+            ★★★★★
+          </span>
+
+          <strong>4.8</strong>
+
+          <span class="reviews">
+            120+ Reviews
+          </span>
+
+        </div>
+
+
+        <p class="hotel-description">
+
+          Beautiful beachside resort with a relaxing atmosphere,
+          stunning sea views and premium accommodation. Perfect
+          for families, couples and peaceful beach holidays.
+
+        </p>
+
+
+        <div class="amenities">
+
+          <span>🏖️ Beach View</span>
+          <span>🏊 Pool</span>
+          <span>📶 Free Wi-Fi</span>
+          <span>🍳 Breakfast</span>
+
+        </div>
+
+
+        <div class="hotel-actions">
+
+          <button
+            type="button"
+            class="view-btn"
+            (click)="viewHotel(
+              'Goa',
+              'Luxury Beach Resort',
+              '2 BHK Sea View Room'
+            )">
+
+            View Hotel
+
+          </button>
+
+
+          <button
+            type="button"
+            class="book-btn"
+            (click)="bookNow(
+              'Goa',
+              'Luxury Beach Resort',
+              '2 BHK Sea View Room'
+            )">
+
+            Book Now
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- ================================================= -->
+    <!-- MOUNTAIN VIEW HOTEL -->
+    <!-- ================================================= -->
+
+    <article class="hotel-card">
+
+      <div class="hotel-image">
+
+        <img
+          [src]="hotelImages[1][hotelImageIndexes[1]]"
+          alt="Mountain View Hotel"
+        >
+
+
+        <span class="hotel-badge best">
+          Best Seller
+        </span>
+
+
+        <button
+          type="button"
+          class="favorite-btn"
+          aria-label="Add to favorites">
+
+          ♡
+
+        </button>
+
+
+        <!-- LEFT -->
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-left"
+          (click)="previousHotelImage(1)"
+          aria-label="Previous image">
+
+          ‹
+
+        </button>
+
+
+        <!-- RIGHT -->
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-right"
+          (click)="nextHotelImage(1)"
+          aria-label="Next image">
+
+          ›
+
+        </button>
+
+
+        <span class="image-count">
+
+          {{ hotelImageIndexes[1] + 1 }} /
+          {{ hotelImages[1].length }}
+
+        </span>
+
+      </div>
+
+
+      <div class="hotel-content">
+
+        <h2>Mountain View Hotel</h2>
+
+        <p class="hotel-location">
+          📍 Manali • Mountain View
+        </p>
+
+
+        <div class="hotel-rating">
+
+          <span class="stars">
+            ★★★★★
+          </span>
+
+          <strong>4.7</strong>
+
+          <span class="reviews">
+            98+ Reviews
+          </span>
+
+        </div>
+
+
+        <p class="hotel-description">
+
+          A peaceful mountain retreat surrounded by snow-covered
+          peaks and beautiful valleys. A perfect choice for
+          families, couples and adventure travellers.
+
+        </p>
+
+
+        <div class="amenities">
+
+          <span>🏔️ Mountain View</span>
+          <span>🔥 Fireplace</span>
+          <span>📶 Free Wi-Fi</span>
+          <span>🍽️ Restaurant</span>
+
+        </div>
+
+
+        <div class="hotel-actions">
+
+          <button
+            type="button"
+            class="view-btn"
+            (click)="viewHotel(
+              'Manali',
+              'Mountain View Hotel',
+              '3 BHK Mountain Suite'
+            )">
+
+            View Hotel
+
+          </button>
+
+
+          <button
+            type="button"
+            class="book-btn"
+            (click)="bookNow(
+              'Manali',
+              'Mountain View Hotel',
+              '3 BHK Mountain Suite'
+            )">
+
+            Book Now
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- ================================================= -->
+    <!-- GRAND DUBAI HOTEL -->
+    <!-- ================================================= -->
+
+    <article class="hotel-card">
+
+      <div class="hotel-image">
+
+        <img
+          [src]="hotelImages[2][hotelImageIndexes[2]]"
+          alt="Grand Dubai Hotel"
+        >
+
+
+        <span class="hotel-badge luxury">
+          Luxury
+        </span>
+
+
+        <button
+          type="button"
+          class="favorite-btn"
+          aria-label="Add to favorites">
+
+          ♡
+
+        </button>
+
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-left"
+          (click)="previousHotelImage(2)"
+          aria-label="Previous image">
+
+          ‹
+
+        </button>
+
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-right"
+          (click)="nextHotelImage(2)"
+          aria-label="Next image">
+
+          ›
+
+        </button>
+
+
+        <span class="image-count">
+
+          {{ hotelImageIndexes[2] + 1 }} /
+          {{ hotelImages[2].length }}
+
+        </span>
+
+      </div>
+
+
+      <div class="hotel-content">
+
+        <h2>Grand Dubai Hotel</h2>
+
+        <p class="hotel-location">
+          📍 Dubai • City View
+        </p>
+
+
+        <div class="hotel-rating">
+
+          <span class="stars">
+            ★★★★★
+          </span>
+
+          <strong>4.9</strong>
+
+          <span class="reviews">
+            150+ Reviews
+          </span>
+
+        </div>
+
+
+        <p class="hotel-description">
+
+          Experience modern luxury in the heart of Dubai with
+          elegant interiors, stunning city views and premium
+          hospitality close to the city's major attractions.
+
+        </p>
+
+
+        <div class="amenities">
+
+          <span>🌆 City View</span>
+          <span>🏊 Infinity Pool</span>
+          <span>💪 Fitness</span>
+          <span>📶 Free Wi-Fi</span>
+
+        </div>
+
+
+        <div class="hotel-actions">
+
+          <button
+            type="button"
+            class="view-btn"
+            (click)="viewHotel(
+              'Dubai',
+              'Grand Dubai Hotel',
+              'Premium Suite'
+            )">
+
+            View Hotel
+
+          </button>
+
+
+          <button
+            type="button"
+            class="book-btn"
+            (click)="bookNow(
+              'Dubai',
+              'Grand Dubai Hotel',
+              'Premium Suite'
+            )">
+
+            Book Now
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- ================================================= -->
+    <!-- MALDIVES ISLAND RESORT -->
+    <!-- ================================================= -->
+
+    <article class="hotel-card">
+
+      <div class="hotel-image">
+
+        <img
+          [src]="hotelImages[3][hotelImageIndexes[3]]"
+          alt="Maldives Island Resort"
+        >
+
+
+        <span class="hotel-badge beach">
+          Beach Escape
+        </span>
+
+
+        <button
+          type="button"
+          class="favorite-btn"
+          aria-label="Add to favorites">
+
+          ♡
+
+        </button>
+
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-left"
+          (click)="previousHotelImage(3)"
+          aria-label="Previous image">
+
+          ‹
+
+        </button>
+
+
+        <button
+          type="button"
+          class="image-arrow image-arrow-right"
+          (click)="nextHotelImage(3)"
+          aria-label="Next image">
+
+          ›
+
+        </button>
+
+
+        <span class="image-count">
+
+          {{ hotelImageIndexes[3] + 1 }} /
+          {{ hotelImages[3].length }}
+
+        </span>
+
+      </div>
+
+
+      <div class="hotel-content">
+
+        <h2>Maldives Island Resort</h2>
+
+        <p class="hotel-location">
+          📍 Maldives • Ocean View
+        </p>
+
+
+        <div class="hotel-rating">
+
+          <span class="stars">
+            ★★★★★
+          </span>
+
+          <strong>4.9</strong>
+
+          <span class="reviews">
+            210+ Reviews
+          </span>
+
+        </div>
+
+
+        <p class="hotel-description">
+
+          Escape to a private island surrounded by crystal-clear
+          waters, white sandy beaches and peaceful tropical
+          landscapes for an unforgettable getaway.
+
+        </p>
+
+
+        <div class="amenities">
+
+          <span>🌊 Ocean View</span>
+          <span>🏝️ Private Island</span>
+          <span>🏊 Pool</span>
+          <span>💆 Spa</span>
+
+        </div>
+
+
+        <div class="hotel-actions">
+
+          <button
+            type="button"
+            class="view-btn"
+            (click)="viewHotel(
+              'Maldives',
+              'Maldives Island Resort',
+              'Ocean Villa'
+            )">
+
+            View Hotel
+
+          </button>
+
+
+          <button
+            type="button"
+            class="book-btn"
+            (click)="bookNow(
+              'Maldives',
+              'Maldives Island Resort',
+              'Ocean Villa'
+            )">
+
+            Book Now
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+
+  <!-- ================================================= -->
+  <!-- TRUST SECTION -->
+  <!-- ================================================= -->
+
+  <div class="trust-section">
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        🛡️
+      </div>
+
+      <div>
+
+        <strong>Best Price Guarantee</strong>
+
+        <p>
+          Get the best prices for your favourite hotels
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        🎧
+      </div>
+
+      <div>
+
+        <strong>24/7 Customer Support</strong>
+
+        <p>
+          We're here to help you anytime, anywhere
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        💳
+      </div>
+
+      <div>
+
+        <strong>Secure Booking</strong>
+
+        <p>
+          Your payment and details are 100% safe with us
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

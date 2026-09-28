@@ -1,0 +1,183 @@
+.destinations-section {
+  max-width: 1250px;
+  margin: 35px auto;
+  padding: 0 10px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0 0 5px;
+  font-size: 26px;
+  color: #222;
+}
+
+.section-header p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.view-all {
+  border: none;
+  background: transparent;
+  color: #0878f9;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.destination-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.destination-image {
+  height: 190px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Destination backgrounds */
+
+.goa {
+  background-image: url("https://www.abirpothi.com/wp-content/uploads/2024/08/Courtesy-Agoda-1024x683.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.manali {
+  background-image: url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1000&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.dubai {
+  background-image: url("https://yunova.international/assets/images/UAE_Landscape-1769589548483.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.maldives {
+  background-image: url("https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1000&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.paris {
+  background-image: url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.singapore {
+  background-image: url("https://cdn.tienphong.vn/images/a6bf4f60924201126af6849ca45a3980dc94a0934ff50a46ece902e44c2968b9ba71cd1bda7f9124f007ea3a811e36a7e489f5d6fe1dd26c24e6720393fb4fa0/image003-7951-6895.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  color: #0878f9;
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.destination-info {
+  padding: 16px;
+}
+
+.destination-info h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+  color: #222;
+}
+
+.destination-info p {
+  margin: 0 0 15px;
+  color: #777;
+  font-size: 13px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price span {
+  font-size: 12px;
+  color: #888;
+}
+
+.price strong {
+  color: #0878f9;
+  font-size: 17px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    align-items: flex-start;
+  }
+}
+
+.book-btn:hover {
+  background: #005dcc;
+}
+
+.book-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 15px;
+  padding: 11px;
+  border-radius: 8px;
+  background: #0878f9;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background: #005dcc;
+}
